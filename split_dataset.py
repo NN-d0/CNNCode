@@ -244,7 +244,6 @@ def main():
         test_data
     )
 
-    print("=====================================================")
     print("数据集切分完成")
     print(f"project_root: {project_root}")
     print(f"train: {train_dir / 'train.npz'}")
@@ -253,8 +252,6 @@ def main():
     print(f"train_count: {len(train_data['label'])}")
     print(f"val_count: {len(val_data['label'])}")
     print(f"test_count: {len(test_data['label'])}")
-    print("=====================================================")
-
 
 if __name__ == "__main__":
     main()

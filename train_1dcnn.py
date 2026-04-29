@@ -158,10 +158,10 @@ def build_arg_parser():
     parser.add_argument("--epochs", type=int, default=30, help="训练轮数")
     parser.add_argument("--lr", type=float, default=1e-3, help="学习率")
     parser.add_argument("--weight-decay", type=float, default=1e-4, help="权重衰减")
-    parser.add_argument("--num-workers", type=int, default=0, help="DataLoader 线程数，Windows 建议 0")
+    parser.add_argument("--num-workers", type=int, default=0, help="DataLoader 线程数")
     parser.add_argument("--patience", type=int, default=5, help="Early Stop 耐心轮数")
     parser.add_argument("--seed", type=int, default=20260325, help="随机种子")
-    parser.add_argument("--device", type=str, default="", help="指定设备，例如 cpu / cuda")
+    parser.add_argument("--device", type=str, default="", help="指定设备")
     return parser
 
 
@@ -418,18 +418,6 @@ def main():
         patience=2,
     )
 
-    print("=====================================================")
-    print("1D-CNN 训练开始")
-    print(f"project_root: {project_root}")
-    print(f"device: {device}")
-    print(f"train_size: {len(train_dataset)}")
-    print(f"val_size: {len(val_dataset)}")
-    print(f"test_size: {len(test_dataset)}")
-    print(f"num_classes: {num_classes}")
-    print(f"batch_size: {args.batch_size}")
-    print(f"epochs: {args.epochs}")
-    print("=====================================================")
-
     best_val_acc = -1.0
     best_epoch = -1
     early_stop_counter = 0
@@ -558,7 +546,6 @@ def main():
     with (report_dir / "training_summary.json").open("w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
 
-    print("=====================================================")
     print("1D-CNN 训练完成")
     print(f"best_model: {best_model_path}")
     print(f"last_model: {last_model_path}")
@@ -571,8 +558,6 @@ def main():
     print(f"best_epoch: {best_epoch}")
     print(f"best_val_acc: {best_val_acc:.4f}")
     print(f"test_acc_best_model: {summary['test_acc_best_model']:.4f}")
-    print("=====================================================")
-
 
 if __name__ == "__main__":
     main()

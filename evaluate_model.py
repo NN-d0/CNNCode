@@ -412,7 +412,6 @@ def main():
     with evaluation_summary_path.open("w", encoding="utf-8") as f:
         json.dump(evaluation_summary, f, ensure_ascii=False, indent=2)
 
-    print("=====================================================")
     print("模型评估完成")
     print(f"predictions_file: {predictions_path}")
     print(f"label_map_file:   {label_map_path}")
@@ -425,8 +424,6 @@ def main():
     print(f"snr_accuracy_report.csv:   {snr_csv_path}")
     print(f"per_class_metrics.png:     {per_class_metrics_path}")
     print(f"evaluation_summary.json:   {evaluation_summary_path}")
-    print("=====================================================")
-
 
 if __name__ == "__main__":
     main()

@@ -408,15 +408,12 @@ def main():
     }
     write_json(metadata_dir / "raw_summary.json", final_summary)
 
-    print("=====================================================")
     print("I/Q 原始数据集生成完成")
     print(f"project_root: {project_root}")
     print(f"raw_dir: {raw_dir}")
     print(f"metadata_dir: {metadata_dir}")
     print(f"总文件数: {len(summary_rows)}")
     print(f"总样本数: {total_samples}")
-    print("=====================================================")
-
 
 if __name__ == "__main__":
     main()
